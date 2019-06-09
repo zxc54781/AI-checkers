@@ -25,21 +25,21 @@ class Plotting:
         pg.display.update()
 
     def WINDOWS_PLOT(self, WINDOWS, FLIP):
-        BOARD = pg.image.load('./tablero_original_revised.png')
+        BOARD = pg.image.load('./ImageAndWord /tablero_original_revised.png')
         BOARD = pg.transform.smoothscale(BOARD, (self.grid_size*self.Nx, self.grid_size*self.Nx))
 
         BOARD_IMAGE = BOARD.get_rect()
         BOARD_IMAGE.topleft = (self.margin_x, self.margin_y)
 
         #ACKGROUND = pg.Surface(WINDOWS.get_size())
-        BACKGROUND = pg.image.load('./background_2.jpg')
+        BACKGROUND = pg.image.load('./ImageAndWord /background_2.jpg')
         BACKGROUND = pg.transform.smoothscale(BACKGROUND, (self.Lx,self.Ly))
         BACKGROUND = BACKGROUND.convert()
 
         self.WINDOWS.blit(BACKGROUND, (0,0))
         self.WINDOWS.blit(BOARD, BOARD_IMAGE)
 
-        font = pg.font.Font("./l_10646.ttf", 10)
+        font = pg.font.Font("./ImageAndWord /l_10646.ttf", 10)
         for i in range(0,64):
             if self.FLIP:
                 text = f"{self.Nx**2-1-i}"
@@ -55,13 +55,13 @@ class Plotting:
 
         for index,element in enumerate(list_of_checkers):
             if element == -self.man_value:
-                CHECKER = pg.image.load('./CHECKER_RED.png')
+                CHECKER = pg.image.load('./ImageAndWord /CHECKER_RED.png')
             elif element == self.man_value:
-                CHECKER = pg.image.load('./CHECKER_WHITE.png')
+                CHECKER = pg.image.load('./ImageAndWord /CHECKER_WHITE.png')
             elif element == -self.king_value:
-                CHECKER = pg.image.load('./CHECKER_RED_KING.png')
+                CHECKER = pg.image.load('./ImageAndWord /CHECKER_RED_KING.png')
             elif element == self.king_value:
-                CHECKER = pg.image.load('./CHECKER_WHITE_KING.png')
+                CHECKER = pg.image.load('./ImageAndWord /CHECKER_WHITE_KING.png')
 
             checker_x = index%self.Nx
             checker_y = index//self.Nx
